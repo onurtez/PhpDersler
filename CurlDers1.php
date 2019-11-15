@@ -27,3 +27,10 @@
     $desen = '@<span class="price urunFiyati" itemprop="price">(.*?)<i class="fa fa-try"></i> </span>@si';
     preg_match_all($desen,$cikti,$fiyat);
     echo "Fiyatı : {$fiyat[0][0]} <br>";
+
+    $desen = '@<a href="/upload/urunResim/600x600/(.*?)"@si';
+    preg_match_all($desen, $cikti,$resim);
+    $resim = "https://www.oyunparam.com//upload/urunResim/600x600/{$resim[1][0]}";
+    echo "Ürün Resmi :  {$resim} <br>";
+    echo  "<img src='{$resim}' />";
+
